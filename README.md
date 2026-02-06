@@ -30,11 +30,11 @@ It randomly displays **10 questions out of a pool of ~50 questions**, lets users
 
 ### Initial UI when app opens
 
-![Initial UI](4.png)
+![Initial UI](5.png)
 
 ### Score after submitting the quiz
 
-![Score Screen](5.png)
+![Score Screen](4.png)
 
 ---
 
@@ -259,6 +259,10 @@ Helpful official docs:
 ---
 
 ## 🎥 Demo Video
+
+
+https://github.com/user-attachments/assets/8a4413ea-0021-4b80-8595-0ff1d661d2d6
+
 
 
 
