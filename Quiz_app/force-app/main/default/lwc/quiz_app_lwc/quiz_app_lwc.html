@@ -1,52 +1,97 @@
 <template>
-    <lightning-card title=" Quiz app ">
+    <lightning-card title="Quiz App">
         <div class="slds-m-around_medium">
-            <form action="">
-                <template for:each={Questions} for:item="quiz">
+
+            <div class="slds-text-heading_small slds-m-bottom_medium">
+                You have scored {correctAnswersCount} out of {quizQuestions.length}
+            </div>
+
+            <form>
+
+                <template for:each={questionsWithNumber} for:item="quiz">
                     <div key={quiz.id} class="question-box slds-m-bottom_medium">
-                        <div>
-                            <strong>{quiz.id}. {quiz.question}</strong>
-                        </div>
-                        <div class="slds-grid slds-grid_vertical-reverse slds-p-bottom_medium">
-                            <div class="slds-col ">
-                                <label>
-                                    <input type="radio" name={quiz.id} value="a" onchange={changeHandler}>
-                                    {quiz.answers.a}
+
+                        <!-- Question number + question -->
+                        <strong>{quiz.number}. {quiz.question}</strong>
+
+                        <!-- OPTIONS: vertical layout -->
+                        <div class="slds-m-top_small slds-form-element">
+
+                            <!-- Option a -->
+                            <div class="slds-form-element__control slds-m-bottom_x-small">
+                                <label class="slds-radio">
+                                    <input type="radio"
+                                           name={quiz.id}
+                                           value="a"
+                                           onchange={changeHandler} />
+                                    <span class="slds-radio_faux"></span>
+                                    <span class="slds-form-element__label">
+                                        {quiz.answers.a}
+                                    </span>
                                 </label>
                             </div>
-                            <div class="slds-col ">
-                                <label>
-                                    <input type="radio" name={quiz.id} value = "b" onchange={changeHandler}>
-                                    {quiz.answers.b}
+
+                            <!-- Option b -->
+                            <div class="slds-form-element__control slds-m-bottom_x-small">
+                                <label class="slds-radio">
+                                    <input type="radio"
+                                           name={quiz.id}
+                                           value="b"
+                                           onchange={changeHandler} />
+                                    <span class="slds-radio_faux"></span>
+                                    <span class="slds-form-element__label">
+                                        {quiz.answers.b}
+                                    </span>
                                 </label>
                             </div>
-                            <div class="slds-col">
-                                <label>
-                                    <input type="radio" name={quiz.id} value = "c" onchange={changeHandler}>
-                                    {quiz.answers.c}
+
+                            <!-- Option c -->
+                            <div class="slds-form-element__control slds-m-bottom_x-small">
+                                <label class="slds-radio">
+                                    <input type="radio"
+                                           name={quiz.id}
+                                           value="c"
+                                           onchange={changeHandler} />
+                                    <span class="slds-radio_faux"></span>
+                                    <span class="slds-form-element__label">
+                                        {quiz.answers.c}
+                                    </span>
                                 </label>
                             </div>
-                            <div class="slds-col ">
-                                <label>
-                                    <input type="radio" name={quiz.id} value = "d" onchange={changeHandler}>
-                                    {quiz.answers.d}
+
+                            <!-- Option d -->
+                            <div class="slds-form-element__control">
+                                <label class="slds-radio">
+                                    <input type="radio"
+                                           name={quiz.id}
+                                           value="d"
+                                           onchange={changeHandler} />
+                                    <span class="slds-radio_faux"></span>
+                                    <span class="slds-form-element__label">
+                                        {quiz.answers.d}
+                                    </span>
                                 </label>
                             </div>
+
                         </div>
                     </div>
                 </template>
-                <lightning-button 
-                    label="Submit" 
-                    title="Submit Quiz" 
-                    variant="brand" 
-                    type="submit" 
-                    class="slds-m-around_small" 
-                    disabled={allNotSelected} 
+
+                <lightning-button
+                    label="Submit"
+                    variant="brand"
+                    class="slds-m-right_small"
+                    disabled={allNotSelected}
                     onclick={submitHandler}>
                 </lightning-button>
 
-                <lightning-button label="Reset" title="Reset Quiz" variant="neutral" type = "reset" class ="slds-m-around_small" onclick={resetHandler}></lightning-button>
-            </form>  
+                <lightning-button
+                    label="Reset"
+                    variant="neutral"
+                    onclick={resetHandler}>
+                </lightning-button>
+
+            </form>
         </div>
     </lightning-card>
 </template>

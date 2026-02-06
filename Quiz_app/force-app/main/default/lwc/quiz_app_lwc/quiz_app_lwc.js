@@ -1,8 +1,11 @@
 import { LightningElement, track } from 'lwc';
 
 export default class Quiz_app_lwc extends LightningElement {
-    @track selectedAnswers = {}; // for storing user selected answers
+
+    @track selectedAnswers = {};
     @track correctAnswersCount = 0;
+    @track quizQuestions = [];
+
     Questions = [
   {
     id: "Q1",
@@ -556,31 +559,57 @@ export default class Quiz_app_lwc extends LightningElement {
   }
 ];
 
-    get allNotSelected() {   
-        return Object.keys(this.selectedAnswers).length < this.Questions.length;
+    // Runs when component loads
+    connectedCallback() {
+        this.quizQuestions = this.getRandomQuestions(10);
     }
 
-
-        changeHandler(event) {
-        console.log("name: ", event.target.name);
-        console.log("value: ", event.target.value);
-        const {name, value} = event.target;
-        // Store only the question ID and the selected answer (a, b, c, d)
-        this.selectedAnswers = {...this.selectedAnswers, [name]: value};
+    // Picks random 20 questions
+    getRandomQuestions(count) {
+        const shuffled = [...this.Questions].sort(() => 0.5 - Math.random());
+        return shuffled.slice(0, count);
     }
 
+    // Add question number (1,2,3...) in JS (LWC safe)
+    get questionsWithNumber() {
+        return this.quizQuestions.map((q, index) => {
+            return {
+                ...q,
+                number: index + 1
+            };
+        });
+    }
 
+    // Disable submit until all questions answered
+    get allNotSelected() {
+        return Object.keys(this.selectedAnswers).length < this.quizQuestions.length;
+    }
+
+    // Store selected answers
+    changeHandler(event) {
+        const { name, value } = event.target;
+        this.selectedAnswers = { ...this.selectedAnswers, [name]: value };
+    }
+
+    // Submit quiz
     submitHandler(event) {
         event.preventDefault();
-        let c = this.Questions.filter(item=>this.selectedAnswers[item.id] === item.correctAnswer)
-        this.correctAnswersCount = c.length;
-        alert('Your score is ' + this.correctAnswersCount + ' out of ' + this.Questions.length);        
+
+        const correct = this.quizQuestions.filter(
+            q => this.selectedAnswers[q.id] === q.correctAnswer
+        );
+
+        this.correctAnswersCount = correct.length;
+
+        alert(
+            `Your score is ${this.correctAnswersCount} out of ${this.quizQuestions.length}`
+        );
     }
 
+    // Reset quiz and load new random 20
     resetHandler() {
         this.selectedAnswers = {};
-        this.correctAnswersCount = 0;        
+        this.correctAnswersCount = 0;
+        this.quizQuestions = this.getRandomQuestions(20);
     }
-
-    
 }
