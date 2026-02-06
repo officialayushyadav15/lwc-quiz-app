@@ -236,7 +236,10 @@ https://github.com/user-attachments/assets/8a4413ea-0021-4b80-8595-0ff1d661d2d6
 
 ## 🙋‍♂️ About Me
 
-I'm **Ayush Yadav**, a passionate developer interested in automation, Salesforce, and building clean, practical solutions.
+
+I’m **Ayush Yadav**, a versatile developer building clean, practical, and impactful solutions across web development, Python, and Salesforce projects.
+
+
 
 ### Let’s connect
 
