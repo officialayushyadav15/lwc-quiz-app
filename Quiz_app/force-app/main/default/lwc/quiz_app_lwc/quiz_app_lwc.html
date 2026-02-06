@@ -2,22 +2,15 @@
     <lightning-card title="Quiz App">
         <div class="slds-m-around_medium">
 
-            <div class="slds-text-heading_small slds-m-bottom_medium">
-                You have scored {correctAnswersCount} out of {quizQuestions.length}
-            </div>
-
             <form>
 
                 <template for:each={questionsWithNumber} for:item="quiz">
                     <div key={quiz.id} class="question-box slds-m-bottom_medium">
 
-                        <!-- Question number + question -->
                         <strong>{quiz.number}. {quiz.question}</strong>
 
-                        <!-- OPTIONS: vertical layout -->
                         <div class="slds-m-top_small slds-form-element">
 
-                            <!-- Option a -->
                             <div class="slds-form-element__control slds-m-bottom_x-small">
                                 <label class="slds-radio">
                                     <input type="radio"
@@ -31,7 +24,6 @@
                                 </label>
                             </div>
 
-                            <!-- Option b -->
                             <div class="slds-form-element__control slds-m-bottom_x-small">
                                 <label class="slds-radio">
                                     <input type="radio"
@@ -45,7 +37,6 @@
                                 </label>
                             </div>
 
-                            <!-- Option c -->
                             <div class="slds-form-element__control slds-m-bottom_x-small">
                                 <label class="slds-radio">
                                     <input type="radio"
@@ -59,7 +50,6 @@
                                 </label>
                             </div>
 
-                            <!-- Option d -->
                             <div class="slds-form-element__control">
                                 <label class="slds-radio">
                                     <input type="radio"
@@ -74,6 +64,13 @@
                             </div>
 
                         </div>
+                    </div>
+                </template>
+
+                <!-- SCORE MESSAGE (LEFT ALIGNED, ONLY AFTER SUBMIT) -->
+                <template if:true={showScore}>
+                    <div class="slds-text-heading_medium slds-m-top_large slds-m-bottom_medium">
+                        You have scored {correctAnswersCount} out of {quizQuestions.length}
                     </div>
                 </template>
 

@@ -5,6 +5,7 @@ export default class Quiz_app_lwc extends LightningElement {
     @track selectedAnswers = {};
     @track correctAnswersCount = 0;
     @track quizQuestions = [];
+    @track showScore = false;
 
     Questions = [
   {
@@ -558,19 +559,15 @@ export default class Quiz_app_lwc extends LightningElement {
     correctAnswer: "b"
   }
 ];
-
-    // Runs when component loads
     connectedCallback() {
         this.quizQuestions = this.getRandomQuestions(10);
     }
 
-    // Picks random 20 questions
     getRandomQuestions(count) {
         const shuffled = [...this.Questions].sort(() => 0.5 - Math.random());
         return shuffled.slice(0, count);
     }
 
-    // Add question number (1,2,3...) in JS (LWC safe)
     get questionsWithNumber() {
         return this.quizQuestions.map((q, index) => {
             return {
@@ -580,18 +577,15 @@ export default class Quiz_app_lwc extends LightningElement {
         });
     }
 
-    // Disable submit until all questions answered
     get allNotSelected() {
         return Object.keys(this.selectedAnswers).length < this.quizQuestions.length;
     }
 
-    // Store selected answers
     changeHandler(event) {
         const { name, value } = event.target;
         this.selectedAnswers = { ...this.selectedAnswers, [name]: value };
     }
 
-    // Submit quiz
     submitHandler(event) {
         event.preventDefault();
 
@@ -600,16 +594,16 @@ export default class Quiz_app_lwc extends LightningElement {
         );
 
         this.correctAnswersCount = correct.length;
-
-        alert(
-            `Your score is ${this.correctAnswersCount} out of ${this.quizQuestions.length}`
-        );
+        this.showScore = true;
     }
 
-    // Reset quiz and load new random 20
     resetHandler() {
         this.selectedAnswers = {};
         this.correctAnswersCount = 0;
-        this.quizQuestions = this.getRandomQuestions(20);
+        this.showScore = false;
+        this.quizQuestions = this.getRandomQuestions(10);
+
+        // CLEAR ALL RADIO SELECTIONS
+        this.template.querySelector('form').reset();
     }
 }
