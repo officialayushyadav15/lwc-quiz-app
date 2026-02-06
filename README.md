@@ -212,41 +212,7 @@ sf project deploy start
 
 ---
 
-## Salesforce DX Project: Next Steps
 
-Now that you’ve created a Salesforce DX project, here’s what to do next and where to look when you need help.
-
-### How Do You Plan to Deploy Your Changes?
-
-Decide whether you want to deploy a small set of changes or ship the whole app as one unit. Salesforce supports different development models depending on your workflow.
-
-👉 Development models guide:
-[https://developer.salesforce.com/tools/vscode/en/user-guide/development-models](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models)
-
-### Configure Your Salesforce DX Project
-
-The `sfdx-project.json` file controls important project settings like namespace, package directories, and API version.
-
-You’ll find full details here:
-[https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm)
-
-### Read All About It
-
-Helpful official docs:
-
-* Salesforce Extensions for VS Code
-  [https://developer.salesforce.com/tools/vscode/](https://developer.salesforce.com/tools/vscode/)
-
-* Salesforce CLI Setup Guide
-  [https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-
-* Salesforce DX Developer Guide
-  [https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-
-* Salesforce CLI Command Reference
-  [https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
-
----
 
 ## 🔗 Source Code
 
