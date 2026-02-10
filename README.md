@@ -1,4 +1,4 @@
-# lwc-quiz-app
+# lwc-quiz-app .
 
 A simple, interactive **Quiz Application** built using **Salesforce Lightning Web Components (LWC)**.
 It randomly displays **10 questions out of a pool of ~50 questions**, lets users submit answers, shows the score, and allows reset with a fresh set of questions.
