@@ -1,4 +1,4 @@
-# 🧠 Quiz App using Lightning Web Components
+# 🧠 Quiz App using Lightning Web Components (LWC)
 
 This project is a simple quiz application built using **Lightning Web Components**.
 It randomly picks questions, lets the user answer them, validates completion, calculates the score, and supports reset with a fresh set of questions.
