@@ -12,7 +12,7 @@ It randomly displays **10 questions out of a pool of ~50 questions**, lets users
 * Random selection of questions on every load
 * Submit button enabled only when all questions are answered
 * Score shown only after submission
-* Reset button clears answers and reloads new questions
+* Reset button clears answers and reloads new questions.
 * Uses SLDS for clean UI
 
 ---
