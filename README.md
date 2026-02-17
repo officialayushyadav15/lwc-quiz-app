@@ -5,7 +5,7 @@ It randomly displays **10 questions out of a pool of ~50 questions**, lets users
 
 ---
 
-## ✨                                                                Features
+## ✨ Features
 
 * Built using **pure LWC (no Apex)**
 * Around **50 Salesforce + LWC questions**
